@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
+    <header id="heads">
         <nav>
             <ul>
                 <div class="logo">
@@ -19,11 +19,12 @@
                 <li><a href="#">Home</a></li>
                 <li><a href="#">About</a></li>
                 <li><a href="#">Services</a></li>
-                <li><a href="#">Contact</a></li>
+                <li><a href="#subscription">Contact</a></li>
             </ul>
         </nav>
         <div class="buttons">
-            <button id="loginbtn">Login</button>
+            <a href="#loginarea">
+                <button id="loginbtn">Login</button></a>
             <button id="startbtn">Get Started</button>
         </div>
     </header>
@@ -33,7 +34,8 @@
             <h1>Welcome to Attendify 2.0</h1>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed malesuada, libero at mattis eleifend, nisi odio viverra nisi, eget luctus orci leo nec justo.</p>
             <div class="buttons">
-                <button id="loginbtn2">Login</button>
+                <a href="#loginarea">
+                <button id="loginbtn2">Login</button></a>
                 <button id="knowmorebtn">Get Started</button>
             </div>
         </div>
@@ -64,10 +66,10 @@
         </div>
     </div>
     </main>
-    <div class="loginarea">
+    <div class="loginarea" id="loginarea">
         <div class="loginbox">
-            <div class="form-container">
-                <h2><span>Login</span> to Your Workspace</h2>
+            <div class="form-container" id="loginform">
+                <h2>Login to Your <span>Workspace</span></h2>
                     <form action="" id="loginform">
                         <label for="username">Email</label>
                         <input type="text" id="username" name="username" placeholder="Enter your email" required>
@@ -84,7 +86,7 @@
     </div>
     <footer class="footer">
         <div class="footer-content">
-            <div class="subscription">
+            <div class="subscription" id="subscription">
                 <h2>Get the latest updates</h2>
                 <div>
                     <input type="email" id="emailInput" placeholder="Enter your email">
@@ -129,7 +131,7 @@
             </div>
             <div class="additional-content">
                 <div>
-                <p>&copy; 2024 Your Company. All rights reserved. Privacy Policy | Terms of Use</p></div>
+                <p>&copy; 2024 Your Company. All rights reserved. Privacy Policy | <span>Terms of Use</span></p></div>
                 <div class="social-media">
                     <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
                     <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
@@ -150,7 +152,7 @@
                 if (emailInput.value.trim() !== '') {
                     // Enable the button
 
-                    subscribeBtn.style.backgroundColor = '#01e277';
+                    subscribeBtn.style.backgroundColor = '#8167e0';
                     subscribeBtn.style.color = '#000000';
 
                     subscribeBtn.disabled = false;
@@ -163,6 +165,25 @@
                 }
             });
         });
+
+
+// scrolling navbar effect on scrolling up and down the page
+        let prevScrollpos = window.pageYOffset;
+
+window.onscroll = function() {
+    let currentScrollPos = window.pageYOffset;
+    if (prevScrollpos > currentScrollPos) {
+        // Scroll up behavior
+        document.getElementById("heads").style.top = "0";
+        document.getElementById("heads").style.padding = "15px";
+
+    } else {
+        // Scroll down behavior
+        document.getElementById("heads").style.top = "-150px"; // Adjust as needed
+    }
+    prevScrollpos = currentScrollPos;
+}
+
     </script>
 </body>
 </html>
